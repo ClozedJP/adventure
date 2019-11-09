@@ -1,4 +1,4 @@
-# boukensya
+# Adventure
 世界樹の迷宮(aka Etrian Odyssey) like game made with Flutter.
 
 # Copyright
