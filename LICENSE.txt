@@ -1,5 +1,5 @@
 # Adventure
-世界樹の迷宮(aka Etrian Odyssey) like game made with Flutter.
+Game made with Flutter.
 
 # Copyright
 Copyright (c) 2019, ClozedJP All rights reserved.

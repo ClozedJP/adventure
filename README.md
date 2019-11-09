@@ -1,5 +1,6 @@
 # Adventure
-世界樹の迷宮(aka Etrian Odyssey) like game made with Flutter.
+世○樹の迷宮(aka E***an Odyssey) like game made with Flutter.
+https://clozedjp.github.io/adventure
 
 # Copyright
 Copyright (c) 2019, ClozedJP All rights reserved.
@@ -9,6 +10,8 @@ Those are located under assets.
 To check each copyright please run the game and see copyright.
 
 If the source code has the Copyright notice like below, it is as it is.
+
+
 /*
   Copyright 2019 ClozedJP
 
