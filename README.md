@@ -1,4 +1,8 @@
-# boukensya
+# About this Branch
+This branch only has basic component, and should be kept as it is.
+This branch has a porpose to make reader understand the basic element of Flutter.
+
+# Adventure
 世界樹の迷宮(aka Etrian Odyssey) like game made with Flutter.
 
 # Copyright
