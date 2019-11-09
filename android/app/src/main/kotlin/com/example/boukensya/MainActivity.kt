@@ -1,4 +1,4 @@
-package com.example.boukensya
+package com.example.adventure
 
 import android.os.Bundle
 import io.flutter.app.FlutterActivity

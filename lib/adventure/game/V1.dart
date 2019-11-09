@@ -220,7 +220,7 @@ class V1 {
         fontFamily: "M-NijimiMincho",
       ),
       initialRoute: "/",
-      title: "Boukensha",
+      title: "adventure",
       routes: {
         "/": (context) => l,
         '${status.description.key}': (context) => status,
