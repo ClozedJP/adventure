@@ -1,0 +1,248 @@
+{
+    "version": "2019-11-08",
+    "adventureDef": {
+        "initialRoute":"theFirstTown",
+        "menu": {
+            "class": "AdventureDescription",
+            "key": "Menu",
+            "name": "Menu",
+            "iconType": "None",
+            "backGroundImagePath": "null",
+            "characterImagePath": "null",
+            "bodyType": "null",
+            "actionList": [
+                {
+                    "class": "AdventureAction",
+                    "key": "status",
+                    "name": "Status",
+                    "actionType": "move"
+                },
+                {
+                    "class": "AdventureAction",
+                    "key": "item",
+                    "name": "Item",
+                    "actionType": "move"
+                },
+                {
+                    "class": "AdventureAction",
+                    "key": "option",
+                    "name": "Option",
+                    "actionType": "move"
+                },
+                {
+                    "class": "AdventureAction",
+                    "key": "null",
+                    "name": "null",
+                    "actionType": "null"
+                },
+                {
+                    "class": "AdventureAction",
+                    "key": "copyright",
+                    "name": "Copyright",
+                    "actionType": "move"
+                }
+            ],
+            "gridItemList": null
+        },
+        "widgetList": [
+            {
+                "class": "AdventureDescription",
+                "key": "theFirstTown",
+                "name": "始まりの街",
+                "iconType": "iconTypeMenu",
+                "backGroundImagePath": "assets/image/background/theFirstTown.jpg",
+                "characterImagePath": "null",
+                "bodyType": "actionBars",
+                "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "inn",
+                        "name": "INN",
+                        "actionType": "move"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "shop",
+                        "name": "SHOP",
+                        "actionType": "move"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "guild",
+                        "name": "GUILD",
+                        "actionType": "move"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "gate",
+                        "name": "GATE",
+                        "actionType": "move"
+                    }
+                ],
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "inn",
+                "name": "宿屋さん",
+                "iconType": "iconTypeMenu",
+                "backGroundImagePath": "assets/image/background/inn.jpg",
+                "characterImagePath": "assets/image/character/nightingale.png",
+                "bodyType": "actionBars",
+                "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "stay",
+                        "name": "STAY",
+                        "actionType": "stay"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "theFirstTown",
+                        "name": "Town Square",
+                        "actionType": "move"
+                    }
+                ],
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "shop",
+                "name": "武器防具屋さん",
+                "iconType": "iconTypeMenu",
+                "backGroundImagePath": "assets/image/background/shop.jpg",
+                "characterImagePath": "assets/image/character/nigaoe_pythagoras_pitagorasu.png",
+                "bodyType": "actionBars",
+                "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "buy",
+                        "name": "BUY",
+                        "actionType": "buy"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "sell",
+                        "name": "SELL",
+                        "actionType": "sell"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "theFirstTown",
+                        "name": "Town Square",
+                        "actionType": "move"
+                    }
+                ],
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "guild",
+                "name": "冒険者ギルド",
+                "iconType": "iconTypeMenu",
+                "backGroundImagePath": "assets/image/background/guild.jpg",
+                "characterImagePath": "assets/image/character/nigaoe_jean_of_arc.png",
+                "bodyType": "actionBars",
+                "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "stay",
+                        "name": "TALK",
+                        "actionType": "talk"
+                    },
+                    {
+                        "class": "AdventureAction",
+                        "key": "theFirstTown",
+                        "name": "Town Square",
+                        "actionType": "move"
+                    }
+                ],
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "gate",
+                "name": "門",
+                "iconType": "iconTypeMenu",
+                "backGroundImagePath": "assets/image/background/gate.jpg",
+                "characterImagePath": "assets/image/character/chusei_heishi_tetsukabuto.png",
+                "bodyType": "actionBars",
+                "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "theFirstTown",
+                        "name": "Town Square",
+                        "actionType": "move"
+                    }
+                ],
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "status",
+                "name": "Status",
+                "iconType": "iconTypeBack",
+                "backGroundImagePath": "null",
+                "characterImagePath": "assets/image/character/yuusya_game.png",
+                "bodyType": "actionBars",
+                "actionList": null,
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "item",
+                "name": "Item",
+                "iconType": "iconTypeBack",
+                "backGroundImagePath": "null",
+                "characterImagePath": "assets/image/character/souji_gomibukuro.png",
+                "bodyType": "actionBars",
+                "actionList": null,
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "option",
+                "name": "Option",
+                "iconType": "iconTypeBack",
+                "backGroundImagePath": "null",
+                "characterImagePath": "assets/image/character/kougu_bako.png",
+                "bodyType": "actionBars",
+                "actionList": null,
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureDescription",
+                "key": "copyright",
+                "name": "Copyright",
+                "iconType": "iconTypeBack",
+                "backGroundImagePath": "null",
+                "characterImagePath": "assets/image/character/copyright_text.png",
+                "bodyType": "cardGrid",
+                "actionList": null,
+                "gridItemList": [
+                    {
+                        "class": "CardGridViewItem",
+                        "cardType": "cardTypeCopyRight",
+                        "disp1": "This Game made by",
+                        "disp2": "Clozed",
+                        "url": "https: //www."
+                    },
+                    {
+                        "class": "CardGridViewItem",
+                        "cardType": "cardTypeCopyRight",
+                        "disp1": "This Game made with",
+                        "disp2": "Flutter",
+                        "url": "https://flutter.dev/"
+                    },
+                    {
+                        "class": "CardGridViewItem",
+                        "cardType": "cardTypeCopyRight",
+                        "disp1": "Character Pictures made by",
+                        "disp2": "いらすとや",
+                        "url": "https://www.irasutoya.com/"
+                    }
+                ]
+            }
+        ]
+    }
+}
