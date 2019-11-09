@@ -66,7 +66,7 @@ class _GameMasterState extends State<GameMaster> {
         fontFamily: "M-NijimiMincho",
       ),
       initialRoute: "/",
-      title: "Boukensha",
+      title: "adventure",
       routes: {
         "/": (context) => Loading(),
       },
