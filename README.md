@@ -9,6 +9,8 @@ Those are located under assets.
 To check each copyright please run the game and see copyright.
 
 If the source code has the Copyright notice like below, it is as it is.
+
+
 /*
   Copyright 2019 ClozedJP
 
