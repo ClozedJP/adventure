@@ -14,7 +14,7 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-import 'package:adventure/adventure/AdventureAbstract.dart';
+import 'package:adventure/adventure/visual/AdventureAbstract.dart';
 import 'package:adventure/adventure/entity/AdventureAction.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
 import 'package:adventure/adventure/util/StringDefUtil.dart';

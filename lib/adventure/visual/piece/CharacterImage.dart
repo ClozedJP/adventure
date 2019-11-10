@@ -17,16 +17,16 @@
 import 'package:adventure/adventure/util/StringDefUtil.dart';
 import 'package:flutter/widgets.dart';
 
-class Character extends StatefulWidget {
+class CharacterImage extends StatefulWidget {
   final String imagePath;
-  Character(String imagePath):this.imagePath = imagePath;
+  CharacterImage(String imagePath):this.imagePath = imagePath;
   @override
-  _CharacterState createState() => _CharacterState(imagePath);
+  _CharacterImageState createState() => _CharacterImageState(imagePath);
 }
 
-class _CharacterState extends State<Character> {
+class _CharacterImageState extends State<CharacterImage> {
   String imagePath;
-  _CharacterState(String imagePath):this.imagePath = imagePath;
+  _CharacterImageState(String imagePath):this.imagePath = imagePath;
   @override
    build(BuildContext context) {
     if (StringDefUtil.isInvalid(imagePath)) {

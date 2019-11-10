@@ -14,11 +14,11 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-import 'package:adventure/adventure/game/GameMaster.dart';
+import 'package:adventure/adventure/Adventure.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(GameMaster());//does have GATE
+  runApp(Adventure());//does have GATE
 }
 
 

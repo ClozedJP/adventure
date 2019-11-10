@@ -50,7 +50,7 @@
                 "key": "theFirstTown",
                 "name": "始まりの街",
                 "iconType": "iconTypeMenu",
-                "backGroundImagePath": "assets/image/background/theFirstTown.jpg",
+                "backGroundImagePath": "asset/image/background/theFirstTown.jpg",
                 "characterImagePath": "null",
                 "bodyType": "actionBars",
                 "actionList": [
@@ -86,8 +86,8 @@
                 "key": "inn",
                 "name": "宿屋さん",
                 "iconType": "iconTypeMenu",
-                "backGroundImagePath": "assets/image/background/inn.jpg",
-                "characterImagePath": "assets/image/character/nightingale.png",
+                "backGroundImagePath": "asset/image/background/inn.jpg",
+                "characterImagePath": "asset/image/character/nightingale.png",
                 "bodyType": "actionBars",
                 "actionList": [
                     {
@@ -110,8 +110,8 @@
                 "key": "shop",
                 "name": "武器防具屋さん",
                 "iconType": "iconTypeMenu",
-                "backGroundImagePath": "assets/image/background/shop.jpg",
-                "characterImagePath": "assets/image/character/nigaoe_pythagoras_pitagorasu.png",
+                "backGroundImagePath": "asset/image/background/shop.jpg",
+                "characterImagePath": "asset/image/character/nigaoe_pythagoras_pitagorasu.png",
                 "bodyType": "actionBars",
                 "actionList": [
                     {
@@ -140,8 +140,8 @@
                 "key": "guild",
                 "name": "冒険者ギルド",
                 "iconType": "iconTypeMenu",
-                "backGroundImagePath": "assets/image/background/guild.jpg",
-                "characterImagePath": "assets/image/character/nigaoe_jean_of_arc.png",
+                "backGroundImagePath": "asset/image/background/guild.jpg",
+                "characterImagePath": "asset/image/character/nigaoe_jean_of_arc.png",
                 "bodyType": "actionBars",
                 "actionList": [
                     {
@@ -164,8 +164,8 @@
                 "key": "gate",
                 "name": "門",
                 "iconType": "iconTypeMenu",
-                "backGroundImagePath": "assets/image/background/gate.jpg",
-                "characterImagePath": "assets/image/character/chusei_heishi_tetsukabuto.png",
+                "backGroundImagePath": "asset/image/background/gate.jpg",
+                "characterImagePath": "asset/image/character/chusei_heishi_tetsukabuto.png",
                 "bodyType": "actionBars",
                 "actionList": [
                     {
@@ -183,7 +183,7 @@
                 "name": "Status",
                 "iconType": "iconTypeBack",
                 "backGroundImagePath": "null",
-                "characterImagePath": "assets/image/character/yuusya_game.png",
+                "characterImagePath": "asset/image/character/yuusya_game.png",
                 "bodyType": "actionBars",
                 "actionList": null,
                 "gridItemList": null
@@ -194,7 +194,7 @@
                 "name": "Item",
                 "iconType": "iconTypeBack",
                 "backGroundImagePath": "null",
-                "characterImagePath": "assets/image/character/souji_gomibukuro.png",
+                "characterImagePath": "asset/image/character/souji_gomibukuro.png",
                 "bodyType": "actionBars",
                 "actionList": null,
                 "gridItemList": null
@@ -205,7 +205,7 @@
                 "name": "Option",
                 "iconType": "iconTypeBack",
                 "backGroundImagePath": "null",
-                "characterImagePath": "assets/image/character/kougu_bako.png",
+                "characterImagePath": "asset/image/character/kougu_bako.png",
                 "bodyType": "actionBars",
                 "actionList": null,
                 "gridItemList": null
@@ -216,7 +216,7 @@
                 "name": "Copyright",
                 "iconType": "iconTypeBack",
                 "backGroundImagePath": "null",
-                "characterImagePath": "assets/image/character/copyright_text.png",
+                "characterImagePath": "asset/image/character/copyright_text.png",
                 "bodyType": "cardGrid",
                 "actionList": null,
                 "gridItemList": [

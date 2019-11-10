@@ -14,8 +14,9 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+import 'package:adventure/adventure/PlayerProtocol.dart';
 import 'package:adventure/adventure/entity/AdventureAction.dart';
-import 'package:adventure/adventure/game/GameMaster.dart';
+import 'package:adventure/adventure/game/Loading.dart';
 import 'package:flutter/material.dart';
 
 class ActionBars extends StatefulWidget {
@@ -66,7 +67,6 @@ class _ActionBarsState extends State<ActionBars> {
                         color: Colors.white,
                       )),
                   onTap: () {
-                    GameMaster.inclementTime();
                     if (actionList[i].actionType == AdventureAction.move) {
                       Navigator.popAndPushNamed(
                           context, '${actionList[i].key}');
@@ -79,6 +79,7 @@ class _ActionBarsState extends State<ActionBars> {
 
                     // }
                     else {
+                      Navigator.popAndPushNamed(context,"refresh",arguments: {"lostMoney":true});
                       Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text(
                         '${actionList[i].actionType}は準備中',

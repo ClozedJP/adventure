@@ -14,12 +14,14 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+import 'package:adventure/adventure/PlayerProtocol.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
-import 'package:adventure/adventure/visual/ActionBars.dart';
-import 'package:adventure/adventure/visual/BackGround.dart';
-import 'package:adventure/adventure/visual/Character.dart';
-import 'package:adventure/adventure/visual/CardGridView.dart';
-import 'package:adventure/adventure/visual/ThemeAppBar.dart';
+import 'package:adventure/adventure/visual/piece/ActionBars.dart';
+import 'package:adventure/adventure/visual/piece/BackGround.dart';
+import 'package:adventure/adventure/visual/piece/CardGridView.dart';
+import 'package:adventure/adventure/visual/piece/CharacterImage.dart';
+import 'package:adventure/adventure/visual/piece/MoneyBar.dart';
+import 'package:adventure/adventure/visual/piece/ThemeAppBar.dart';
 import 'package:flutter/material.dart';
 
 abstract class AdventureAbstract extends StatefulWidget{
@@ -42,18 +44,18 @@ abstract class AdventureStateAbstract {
   }
 
   Widget getCharacter() {
-    return Character(description.characterImagePath);
+    return CharacterImage(description.characterImagePath);
   }
 
   Widget getActionBars() {
     return ActionBars(description.actionList);
   }
 
-  Widget getGridview() {
-    return Container();
-  }
-
   Widget getCardGridView(){
     return CardGridView(description.gridItemList);
+  }
+
+  Widget getMoneyContainer() {
+    return MoneyBar();
   }
 }

@@ -14,33 +14,34 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-import 'package:adventure/adventure/AdventureAbstract.dart';
+import 'package:adventure/adventure/visual/AdventureAbstract.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
-import 'package:adventure/adventure/game/GameMaster.dart';
-import 'package:adventure/adventure/visual/MenuActionBars.dart';
+import 'package:adventure/adventure/PlayerProtocol.dart';
+import 'package:adventure/adventure/visual/piece/MenuActionBars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AdventureWidget extends AdventureAbstract {
   static final AdventureDescription menuDescription = AdventureDescription();
-    AdventureWidget({@required AdventureDescription description}) {
+  AdventureWidget({@required AdventureDescription description}) {
     this.description.setValueFrom(description);
   }
   @override
   _AdventureWidgetState createState() => _AdventureWidgetState(description);
 }
 
-class _AdventureWidgetState extends State<AdventureWidget> with AdventureStateAbstract {
+class _AdventureWidgetState extends State<AdventureWidget>
+    with AdventureStateAbstract {
   _AdventureWidgetState(AdventureDescription description) {
     this.description = description;
   }
   @override
   Widget build(BuildContext context) {
     Widget body;
-    if(this.description.bodyType == AdventureDescription.bodyTypeActionBars){
+    if (this.description.bodyType == AdventureDescription.bodyTypeActionBars) {
       body = getActionBars();
-    }
-    else if(this.description.bodyType == AdventureDescription.bodyTypeCardGrid){
+    } else if (this.description.bodyType ==
+        AdventureDescription.bodyTypeCardGrid) {
       body = getCardGridView();
     }
 
@@ -50,14 +51,19 @@ class _AdventureWidgetState extends State<AdventureWidget> with AdventureStateAb
         children: <Widget>[
           getBackGround(),
           getCharacter(),
+          getMoneyContainer(),
           Scaffold(
             backgroundColor: Colors.transparent,
-            drawer:MenuActionBars.fromDescription(AdventureWidget.menuDescription),
-            appBar: getAppBar(GameMaster.getTimeString(),GameMaster.getDateString()),
+            drawer:
+                MenuActionBars.fromDescription(AdventureWidget.menuDescription),
+            appBar: getAppBar(
+                PlayerProtocol.getTimeString(), PlayerProtocol.getDateString()),
             body: body,
           ),
         ],
       ),
     );
   }
+
+  
 }

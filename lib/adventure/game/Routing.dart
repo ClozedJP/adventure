@@ -15,29 +15,128 @@
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+import 'package:adventure/adventure/game/GameMaster.dart';
 import 'package:adventure/adventure/game/Loading.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 
 class Routing {
   Map widgetMap;
   Widget initialItem;
+  String lastRoute;
   Route<dynamic> generateRoute(RouteSettings settings) {
-    if(widgetMap != null || settings == null || settings.arguments == null){
-    }
-    else{
+    if (widgetMap != null || settings == null || settings.arguments == null) {
+    } else {
       Map arguments = settings.arguments;
       widgetMap = arguments["widgetMap"];
     }
-    if(widgetMap == null){
+    if (widgetMap == null) {
       return MaterialPageRoute(builder: (context) => Loading());
     }
-    Widget target = widgetMap[settings.name];
-    if(initialItem == null)initialItem = target;
-    if(target == null){
+
+    //Game Started
+    {
+      Map arguments = settings.arguments;
+      //test code
+      GameMaster.inclementTime();
+      if (arguments != null && arguments["lostMoney"] != null) {
+        GameMaster.party.wallet.currentMoney -= 500;
+      }
+    }
+
+    print(settings.name);
+
+    String routeName = settings.name;
+    String routeType = "MaterialPageRoute";
+    if (routeName == "refresh") {
+      routeName = lastRoute;
+      routeType = "RefreshPageRoute";
+    }
+    lastRoute = routeName;
+    print("routeName:" + routeName);
+    Widget target = widgetMap[routeName];
+    if (initialItem == null) initialItem = target;
+    if (target == null) {
       target = initialItem;
-    }    
-    return MaterialPageRoute(builder: (context) => target);
+    }
+
+    // return RefreshPageRoute(page: target);
+
+    if (routeType == "RefreshPageRoute") {
+      print("RefreshPageRoute");
+      return RefreshPageRoute(page: target);
+    } else {
+      print("MaterialPageRoute");
+      return GotoPageRoute(page: BlackScreen());
+      // return MaterialPageRoute(builder: (context) => BlackScreen());
+    }
+  }
+}
+
+class RefreshPageRoute extends PageRouteBuilder {
+  //https://api.flutter.dev/flutter/widgets/PageRouteBuilder-class.html
+  final Widget page;
+  final bool maintainState; //リーク対策とかするときは肝になりそう
+  RefreshPageRoute({@required this.page, this.maintainState = true})
+      : super(
+            pageBuilder: (
+              BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+            ) =>
+                page,
+            maintainState: maintainState,
+            transitionDuration: Duration(milliseconds: 0));
+}
+
+class GotoPageRoute extends PageRouteBuilder {
+  //https://api.flutter.dev/flutter/widgets/PageRouteBuilder-class.html
+  final Widget page;
+  final bool maintainState;
+  GotoPageRoute({this.page, this.maintainState = true})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(1, 0),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          ),
+          maintainState: maintainState,
+        );
+}
+
+class BlackScreen extends StatefulWidget {
+  @override
+  _BlackScreenState createState() => _BlackScreenState();
+}
+
+class _BlackScreenState extends State<BlackScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: 500), () {
+      Navigator.popAndPushNamed(context, "refresh");
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+    );
   }
 }

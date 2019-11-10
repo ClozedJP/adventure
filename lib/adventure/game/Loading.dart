@@ -17,7 +17,9 @@
 
 import 'dart:convert';
 
-import 'package:adventure/adventure/AdventureWidget.dart';
+import 'package:adventure/adventure/game/GameMaster.dart';
+import 'package:adventure/adventure/game/character/player/Player.dart';
+import 'package:adventure/adventure/visual/AdventureWidget.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,10 +32,15 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void setupInitialCondition() async {
+  void setInitialCondition() async {
+    setVisualWidget();
+    setCharater();
+  }
+
+  void setVisualWidget() async {
     Map widgetMap = {};
 
-    String defString = await rootBundle.loadString("assets/data/testDef20191108.json");
+    String defString = await rootBundle.loadString("asset/data/testDef20191108.json");
     Map def = jsonDecode(defString);
     print("--- Loading adventure_def ---");
     print("version:" + def["version"]);
@@ -50,13 +57,27 @@ class _LoadingState extends State<Loading> {
     }
     print("--- Loading complete ---");
 
-    Navigator.popAndPushNamed(context, adventureDef["initialRoute"],arguments: {"widgetMap" : widgetMap});
+    Navigator.popAndPushNamed(context, adventureDef["initialRoute"],arguments: {"widgetMap" : widgetMap});    
+  }
+
+  void setCharater() async {
+    Player c = Player(
+      firstName: "John",
+      lastName: "Doe",
+      currentHP: 100,
+      maxHP: 100,
+      currentResource1: 100,
+      maxResource1: 100,      
+    );
+    c.id = c.hashCode.toString();
+    GameMaster.party.partyMembers[c.id] = c;
+    GameMaster.party.wallet.currentMoney = 100000000;
   }
 
   @override
   void initState() {
     super.initState();
-    setupInitialCondition();
+    setInitialCondition();
   }
 
   @override
