@@ -41,14 +41,10 @@ class MenuActionBars extends AdventureAbstract {
     this.description.setValueFrom(description);
   }
   @override
-  _MenuActionBarsState createState() => _MenuActionBarsState(description);
+  _MenuActionBarsState createState() => _MenuActionBarsState();
 }
 
-class _MenuActionBarsState extends State<MenuActionBars>
-    with AdventureStateAbstract {
-  _MenuActionBarsState(AdventureDescription description) {
-    this.description = description;
-  }
+class _MenuActionBarsState extends State<MenuActionBars>{
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -58,14 +54,14 @@ class _MenuActionBarsState extends State<MenuActionBars>
       child: Drawer(
         child: Container(
           child: ListView.builder(
-            itemCount: description.actionList.length + 1,
+            itemCount: this.widget.description.actionList.length + 1,
             itemBuilder: (context, index) {
               if (index == 0) {
                 return Container(
                   alignment: Alignment.center,
                   color: Colors.blueGrey[900].withOpacity(0.9),
                   child: Text(
-                    description.name,
+                    this.widget.description.name,
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
@@ -76,7 +72,7 @@ class _MenuActionBarsState extends State<MenuActionBars>
                 );
               } else {
                 int i = index - 1;
-                if (StringDefUtil.isInvalid(description.actionList[i].key)) {
+                if (StringDefUtil.isInvalid(this.widget.description.actionList[i].key)) {
                   return SizedBox(
                     height: 60,
                   );
@@ -87,9 +83,9 @@ class _MenuActionBarsState extends State<MenuActionBars>
                     child: ListTile(
                       onTap: () {
                         Navigator.pushNamed(
-                            context, '${description.actionList[i].key}',);
+                            context, '${this.widget.description.actionList[i].key}',);
                       },
-                      title: Text(description.actionList[i].name,
+                      title: Text(this.widget.description.actionList[i].name,
                           style: TextStyle(
                             fontSize: 30,
                             color: Colors.white,

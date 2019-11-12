@@ -47,8 +47,8 @@ abstract class AdventureStateAbstract {
     return CharacterImage(description.characterImagePath);
   }
 
-  Widget getActionBars() {
-    return ActionBars(description.actionList);
+  Widget getActionBars(Function setState) {
+    return ActionBars(description.actionList,setState);
   }
 
   Widget getCardGridView(){

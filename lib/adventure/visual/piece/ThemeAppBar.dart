@@ -30,20 +30,10 @@ class ThemeAppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
   @override
-  ThemeAppBarState createState() => ThemeAppBarState(this);
+  ThemeAppBarState createState() => ThemeAppBarState();
 }
 
 class ThemeAppBarState extends State<ThemeAppBar> {
-  String iconType;
-  String disp_1;
-  String disp_2;
-  String disp_3;
-  ThemeAppBarState(ThemeAppBar themeAppBar){
-    this.iconType = themeAppBar.iconType;
-    this.disp_1 = themeAppBar.disp_1;
-    this.disp_2 = themeAppBar.disp_2;
-    this.disp_3 = themeAppBar.disp_3;
-  }
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -52,7 +42,7 @@ class ThemeAppBarState extends State<ThemeAppBar> {
         builder: (context) {
           Icon icon;
           Function f;
-          if (iconType == AdventureDescription.iconTypeBack) {
+          if (this.widget.iconType == AdventureDescription.iconTypeBack) {
             icon = Icon(
               Icons.arrow_back,
             );
@@ -84,7 +74,7 @@ class ThemeAppBarState extends State<ThemeAppBar> {
           Container(
             color: Colors.blueGrey[900].withOpacity(0.4),
             child: Text(
-              disp_1,
+              this.widget.disp_1,
               style: TextStyle(fontSize: 30),
             ),
             padding: EdgeInsets.all(30),
@@ -93,7 +83,7 @@ class ThemeAppBarState extends State<ThemeAppBar> {
           Container(
             color: Colors.blueGrey[900].withOpacity(0.4),
             child: Text(
-              disp_2,
+              this.widget.disp_2,
               style: TextStyle(fontSize: 30),
             ),
             padding: EdgeInsets.all(30),
@@ -103,7 +93,7 @@ class ThemeAppBarState extends State<ThemeAppBar> {
             width: 500,
             color: Colors.blueGrey[900].withOpacity(0.4),
             child: Text(
-              disp_3,
+              this.widget.disp_3,
               style: TextStyle(fontSize: 30),
             ),
             alignment: Alignment.center,

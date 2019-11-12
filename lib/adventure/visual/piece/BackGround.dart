@@ -22,23 +22,21 @@ class BackGround extends StatefulWidget {
   final String imagePath;
   BackGround(String imagePath) : this.imagePath = imagePath;
   @override
-  _BackGroundState createState() => _BackGroundState(imagePath);
+  _BackGroundState createState() => _BackGroundState();
 }
 
 class _BackGroundState extends State<BackGround> {
   static String lastImagePath;
-  String imagePath;
-  _BackGroundState(imagePath) : this.imagePath = imagePath;
   @override
   build(BuildContext context) {
     double lastImageAlpha;
     String path;
-    if(StringDefUtil.isInvalid(imagePath)){
+    if(StringDefUtil.isInvalid(this.widget.imagePath)){
       path = lastImagePath;
       lastImageAlpha = 0.85;
     }
     else{
-      path = imagePath;
+      path = this.widget.imagePath;
       lastImageAlpha = 0;
     }
 

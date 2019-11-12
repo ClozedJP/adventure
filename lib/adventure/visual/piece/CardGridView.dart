@@ -25,12 +25,10 @@ class CardGridView extends StatefulWidget {
   final List<CardGridViewItem> itemList;
   CardGridView(List<CardGridViewItem> itemList) : this.itemList = itemList;
   @override
-  _CardGridView createState() => _CardGridView(itemList);
+  _CardGridView createState() => _CardGridView();
 }
 
 class _CardGridView extends State<CardGridView> {
-  List<CardGridViewItem> itemList;
-  _CardGridView(this.itemList);
   double maxExtent = 500;
   double childAspectRatio = 1.654;
   double getEstimatedGridHieght() {
@@ -39,7 +37,7 @@ class _CardGridView extends State<CardGridView> {
 
   @override
   Widget build(BuildContext context) {
-    if (itemList == null || itemList.isEmpty) {
+    if (this.widget.itemList == null || this.widget.itemList.isEmpty) {
       return Container();
     }
     return GridView.extent(
@@ -54,8 +52,8 @@ class _CardGridView extends State<CardGridView> {
 
   List<Widget> getGridTileList() {
     List<Widget> list = [];
-    for (int i = 0; i < itemList.length; i++) {
-      list.add(getCopyRightCard(itemList[i]));
+    for (int i = 0; i < this.widget.itemList.length; i++) {
+      list.add(getCopyRightCard(this.widget.itemList[i]));
     }
     return list;
   }

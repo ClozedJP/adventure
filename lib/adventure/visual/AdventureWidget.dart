@@ -27,19 +27,22 @@ class AdventureWidget extends AdventureAbstract {
     this.description.setValueFrom(description);
   }
   @override
-  _AdventureWidgetState createState() => _AdventureWidgetState(description);
+  _AdventureWidgetState createState() => _AdventureWidgetState();
 }
 
 class _AdventureWidgetState extends State<AdventureWidget>
     with AdventureStateAbstract {
-  _AdventureWidgetState(AdventureDescription description) {
-    this.description = description;
+  @override
+  void initState() {
+    super.initState();
+    this.description = this.widget.description;
   }
+
   @override
   Widget build(BuildContext context) {
     Widget body;
     if (this.description.bodyType == AdventureDescription.bodyTypeActionBars) {
-      body = getActionBars();
+      body = getActionBars(setState);
     } else if (this.description.bodyType ==
         AdventureDescription.bodyTypeCardGrid) {
       body = getCardGridView();

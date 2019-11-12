@@ -21,22 +21,20 @@ class CharacterImage extends StatefulWidget {
   final String imagePath;
   CharacterImage(String imagePath):this.imagePath = imagePath;
   @override
-  _CharacterImageState createState() => _CharacterImageState(imagePath);
+  _CharacterImageState createState() => _CharacterImageState();
 }
 
 class _CharacterImageState extends State<CharacterImage> {
-  String imagePath;
-  _CharacterImageState(String imagePath):this.imagePath = imagePath;
   @override
    build(BuildContext context) {
-    if (StringDefUtil.isInvalid(imagePath)) {
+    if (StringDefUtil.isInvalid(this.widget.imagePath)) {
       return Container();
     } 
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
         alignment: Alignment.bottomRight,
-        image: AssetImage(imagePath),
+        image: AssetImage(this.widget.imagePath),
         fit: BoxFit.contain,
       )),
     );

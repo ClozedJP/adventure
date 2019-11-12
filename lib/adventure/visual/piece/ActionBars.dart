@@ -14,32 +14,28 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-import 'package:adventure/adventure/PlayerProtocol.dart';
 import 'package:adventure/adventure/entity/AdventureAction.dart';
-import 'package:adventure/adventure/game/Loading.dart';
 import 'package:flutter/material.dart';
 
 class ActionBars extends StatefulWidget {
   final List<AdventureAction> actionList;
-  ActionBars(List<AdventureAction> actionList) : this.actionList = actionList;
+  final Function setStateFromParent;
+  ActionBars(List<AdventureAction> actionList,Function setStateFromParent) : this.actionList = actionList,this.setStateFromParent = setStateFromParent;
   @override
-  _ActionBarsState createState() => _ActionBarsState(actionList);
+  _ActionBarsState createState() => _ActionBarsState();
 }
 
 class _ActionBarsState extends State<ActionBars> {
-  List<AdventureAction> actionList;
-  _ActionBarsState(List<AdventureAction> actionList)
-      : this.actionList = actionList;
   @override
   Widget build(BuildContext context) {
-    if (actionList == null || actionList.isEmpty) {
+    if (this.widget.actionList == null || this.widget.actionList.isEmpty) {
       return Container();
     }
 
     return Container(
       width: 300,
       child: ListView.builder(
-        itemCount: actionList.length + 1,
+        itemCount: this.widget.actionList.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return SizedBox(
@@ -47,7 +43,7 @@ class _ActionBarsState extends State<ActionBars> {
             );
           } else {
             int i = index - 1;
-            if (actionList[i].key == null || actionList[i].key.isEmpty) {
+            if (this.widget.actionList[i].key == null || this.widget.actionList[i].key.isEmpty) {
               return SizedBox(
                 height: 60,
               );
@@ -61,15 +57,15 @@ class _ActionBarsState extends State<ActionBars> {
                     color: Colors.white,
                     size: 40,
                   ),
-                  title: Text(actionList[i].name,
+                  title: Text(this.widget.actionList[i].name,
                       style: TextStyle(
                         fontSize: 30,
                         color: Colors.white,
                       )),
                   onTap: () {
-                    if (actionList[i].actionType == AdventureAction.move) {
+                    if (this.widget.actionList[i].actionType == AdventureAction.move) {
                       Navigator.pushNamed(
-                          context, '${actionList[i].key}');
+                          context, '${this.widget.actionList[i].key}');
                       // Navigator.pushNamed(context, '${actionList[i].key}');
                     }
                     // else if(actionList[i].actionType == AdventureAction.buy){
@@ -79,10 +75,10 @@ class _ActionBarsState extends State<ActionBars> {
 
                     // }
                     else {
-                      Navigator.pushNamed(context,"refresh",arguments: {"lostMoney":true});
+                      // Navigator.pushNamed(context,"refresh",arguments: {"lostMoney":true});
                       Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text(
-                        '${actionList[i].actionType}は準備中',
+                        '${this.widget.actionList[i].actionType}は準備中',
                         style: TextStyle(fontSize: 80),
                       )));
                     }
