@@ -36,25 +36,24 @@ class Routing {
     }
 
     //Game Started
+    String routeName = settings.name;
+    String routeType = "MaterialPageRoute";
+
     {
-      Map arguments = settings.arguments;
+      // Map arguments = settings.arguments;
       //test code
-      GameMaster.inclementTime();
-      if (arguments != null && arguments["lostMoney"] != null) {
+      if (routeName == "refresh") {
+        GameMaster.inclementTime();
         GameMaster.party.wallet.currentMoney -= 500;
       }
     }
 
-    print(settings.name);
-
-    String routeName = settings.name;
-    String routeType = "MaterialPageRoute";
     if (routeName == "refresh") {
       routeName = lastRoute;
       routeType = "RefreshPageRoute";
     }
     lastRoute = routeName;
-    print("routeName:" + routeName);
+    
     Widget target = widgetMap[routeName];
     if (initialItem == null) initialItem = target;
     if (target == null) {
@@ -124,6 +123,8 @@ class GotoPageRoute extends PageRouteBuilder {
         );
 }
 
+
+//次画面用の画像を先に読み込みテストするようなタイミングを作る動作を入れてもいいかもしれない
 class BlackScreen extends StatefulWidget {
   @override
   _BlackScreenState createState() => _BlackScreenState();

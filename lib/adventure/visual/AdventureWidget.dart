@@ -48,6 +48,13 @@ class _AdventureWidgetState extends State<AdventureWidget>
       body = getCardGridView();
     }
 
+    Stack bodyStack = Stack(
+      children: <Widget>[
+        getPartyStatusCharts(),
+        body,
+      ],
+    );
+
     return Container(
       color: Colors.transparent,
       child: Stack(
@@ -61,12 +68,10 @@ class _AdventureWidgetState extends State<AdventureWidget>
                 MenuActionBars.fromDescription(AdventureWidget.menuDescription),
             appBar: getAppBar(
                 PlayerProtocol.getTimeString(), PlayerProtocol.getDateString()),
-            body: body,
+            body: bodyStack,
           ),
         ],
       ),
     );
   }
-
-  
 }

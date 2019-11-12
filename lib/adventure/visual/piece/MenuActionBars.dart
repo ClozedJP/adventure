@@ -82,6 +82,7 @@ class _MenuActionBarsState extends State<MenuActionBars>{
                     color: Colors.blue[900],
                     child: ListTile(
                       onTap: () {
+                        //Clozed 裏の状態を残すように指定できるようにする
                         Navigator.pushNamed(
                             context, '${this.widget.description.actionList[i].key}',);
                       },

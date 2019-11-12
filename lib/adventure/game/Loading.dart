@@ -16,6 +16,7 @@
 */
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:adventure/adventure/game/GameMaster.dart';
 import 'package:adventure/adventure/game/character/player/Player.dart';
@@ -61,17 +62,46 @@ class _LoadingState extends State<Loading> {
   }
 
   void setCharater() async {
-    Player c = Player(
-      firstName: "John",
-      lastName: "Doe",
-      currentHP: 100,
-      maxHP: 100,
-      currentResource1: 100,
-      maxResource1: 100,      
-    );
-    c.id = c.hashCode.toString();
-    GameMaster.party.partyMembers[c.id] = c;
     GameMaster.party.wallet.currentMoney = 100000000;
+
+    List<Player> r1 = [];
+
+    r1.add(null);
+    Player z = createDummyCharacter("CLOSED","Clo");
+    z.id = z.hashCode.toString();
+    r1.add(z);
+
+    Player j = createDummyCharacter("かみ装甲","クリス");
+    j.id = j.hashCode.toString();
+    r1.add(j);
+
+    GameMaster.party.partyMembers.add(r1);
+
+    List<Player> r2 = [];
+    Player c = createDummyCharacter("キャメラマン","キャメ");
+    c.id = c.hashCode.toString();
+    r2.add(c);
+
+    Player taka = createDummyCharacter("たかはし","たなか");
+    taka.id = taka.hashCode.toString();
+    r2.add(taka);
+
+    Player shiranai = createDummyCharacter("しらないひと","Unknown");
+    shiranai.id = shiranai.hashCode.toString();
+    r2.add(shiranai);
+
+    GameMaster.party.partyMembers.add(r2);
+  }
+
+  Player createDummyCharacter(String firstName,String lastName){
+    return Player(
+      firstName: firstName,
+      lastName: lastName,
+      currentHP: Random.secure().nextInt(1000),
+      maxHP: 1000,
+      currentResource1: Random.secure().nextInt(1000),
+      maxResource1: 1000,      
+    );
   }
 
   @override

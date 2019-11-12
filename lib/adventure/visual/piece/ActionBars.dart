@@ -76,6 +76,7 @@ class _ActionBarsState extends State<ActionBars> {
                     // }
                     else {
                       // Navigator.pushNamed(context,"refresh",arguments: {"lostMoney":true});
+                      // callbackでコンポーネントのリフレッシュを行う機能がほしい
                       Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text(
                         '${this.widget.actionList[i].actionType}は準備中',
