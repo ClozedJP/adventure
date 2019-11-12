@@ -64,10 +64,8 @@ class Routing {
     // return RefreshPageRoute(page: target);
 
     if (routeType == "RefreshPageRoute") {
-      print("RefreshPageRoute");
       return RefreshPageRoute(page: target);
     } else {
-      print("MaterialPageRoute");
       return GotoPageRoute(page: BlackScreen());
       // return MaterialPageRoute(builder: (context) => BlackScreen());
     }
@@ -78,23 +76,29 @@ class RefreshPageRoute extends PageRouteBuilder {
   //https://api.flutter.dev/flutter/widgets/PageRouteBuilder-class.html
   final Widget page;
   final bool maintainState; //リーク対策とかするときは肝になりそう
-  RefreshPageRoute({@required this.page, this.maintainState = true})
+  RefreshPageRoute({@required this.page, this.maintainState = false})
       : super(
-            pageBuilder: (
-              BuildContext context,
-              Animation<double> animation,
-              Animation<double> secondaryAnimation,
-            ) =>
-                page,
-            maintainState: maintainState,
-            transitionDuration: Duration(milliseconds: 0));
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          // transitionsBuilder: (
+          //   BuildContext context,
+          //   Animation<double> animation,
+          //   Animation<double> secondaryAnimation,
+          //   Widget child,
+          // ) => child ,
+          maintainState: maintainState,
+        );
 }
 
 class GotoPageRoute extends PageRouteBuilder {
   //https://api.flutter.dev/flutter/widgets/PageRouteBuilder-class.html
   final Widget page;
   final bool maintainState;
-  GotoPageRoute({this.page, this.maintainState = true})
+  GotoPageRoute({this.page, this.maintainState = false})
       : super(
           pageBuilder: (
             BuildContext context,
@@ -116,6 +120,7 @@ class GotoPageRoute extends PageRouteBuilder {
             child: child,
           ),
           maintainState: maintainState,
+          transitionDuration:Duration(milliseconds: 500),
         );
 }
 

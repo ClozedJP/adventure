@@ -68,7 +68,7 @@ class _ActionBarsState extends State<ActionBars> {
                       )),
                   onTap: () {
                     if (actionList[i].actionType == AdventureAction.move) {
-                      Navigator.popAndPushNamed(
+                      Navigator.pushNamed(
                           context, '${actionList[i].key}');
                       // Navigator.pushNamed(context, '${actionList[i].key}');
                     }
@@ -79,7 +79,7 @@ class _ActionBarsState extends State<ActionBars> {
 
                     // }
                     else {
-                      Navigator.popAndPushNamed(context,"refresh",arguments: {"lostMoney":true});
+                      Navigator.pushNamed(context,"refresh",arguments: {"lostMoney":true});
                       Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text(
                         '${actionList[i].actionType}は準備中',
