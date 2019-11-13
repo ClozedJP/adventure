@@ -20,6 +20,7 @@ import 'dart:math';
 
 import 'package:adventure/adventure/game/GameMaster.dart';
 import 'package:adventure/adventure/game/character/player/Player.dart';
+import 'package:adventure/adventure/visual/AdventureBattleWidget.dart';
 import 'package:adventure/adventure/visual/AdventureWidget.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
 import 'package:flutter/material.dart';
@@ -53,8 +54,16 @@ class _LoadingState extends State<Loading> {
     List widgetList = adventureDef["widgetList"];
     
     for(Map m in widgetList){
-      AdventureDescription ad = AdventureDescription.fromJson(m);
-      widgetMap[ad.key] = AdventureWidget(description: ad);
+      Widget widget;
+      if(m["class"] == "AdventureWidget"){
+        AdventureDescription ad = AdventureDescription.fromJson(m);
+        widget = AdventureWidget(description: ad);
+      }
+      else if(m["class"] == "AdventureBattleWidget"){
+        AdventureDescription ad = AdventureDescription.fromJson(m);
+        widget = AdventureBattleWidget(description: ad);
+      }
+      widgetMap[m["key"]] = widget;
     }
     print("--- Loading complete ---");
 

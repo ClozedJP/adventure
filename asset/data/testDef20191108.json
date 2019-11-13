@@ -3,7 +3,7 @@
     "adventureDef": {
         "initialRoute":"theFirstTown",
         "menu": {
-            "class": "AdventureDescription",
+            "class": "AdventureWidget",
             "key": "Menu",
             "name": "Menu",
             "iconType": "None",
@@ -46,7 +46,7 @@
         },
         "widgetList": [
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "theFirstTown",
                 "name": "始まりの街",
                 "iconType": "iconTypeMenu",
@@ -82,7 +82,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "inn",
                 "name": "宿屋さん",
                 "iconType": "iconTypeMenu",
@@ -106,7 +106,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "shop",
                 "name": "武器防具屋さん",
                 "iconType": "iconTypeMenu",
@@ -136,7 +136,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "guild",
                 "name": "冒険者ギルド",
                 "iconType": "iconTypeMenu",
@@ -144,6 +144,9 @@
                 "characterImagePath": "asset/image/character/nigaoe_jean_of_arc.png",
                 "bodyType": "actionBars",
                 "actionList": [
+                    {
+
+                    },
                     {
                         "class": "AdventureAction",
                         "key": "stay",
@@ -160,7 +163,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "gate",
                 "name": "門",
                 "iconType": "iconTypeMenu",
@@ -168,6 +171,12 @@
                 "characterImagePath": "asset/image/character/chusei_heishi_tetsukabuto.png",
                 "bodyType": "actionBars",
                 "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "forest",
+                        "name": "Forest",
+                        "actionType": "move"
+                    },
                     {
                         "class": "AdventureAction",
                         "key": "theFirstTown",
@@ -178,7 +187,25 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureBattleWidget",
+                "key": "forest",
+                "name": "森",
+                "iconType": "iconTypeMenu",
+                "backGroundImagePath": "asset/image/background/forest.jpg",
+                "characterImagePath": "asset/image/character/chusei_heishi_tetsukabuto.png",
+                "bodyType": "actionBars",
+                "actionList": [
+                    {
+                        "class": "AdventureAction",
+                        "key": "gate",
+                        "name": "Gate",
+                        "actionType": "move"
+                    }
+                ],
+                "gridItemList": null
+            },
+            {
+                "class": "AdventureWidget",
                 "key": "status",
                 "name": "Status",
                 "iconType": "iconTypeBack",
@@ -189,7 +216,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "item",
                 "name": "Item",
                 "iconType": "iconTypeBack",
@@ -200,7 +227,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "option",
                 "name": "Option",
                 "iconType": "iconTypeBack",
@@ -211,7 +238,7 @@
                 "gridItemList": null
             },
             {
-                "class": "AdventureDescription",
+                "class": "AdventureWidget",
                 "key": "copyright",
                 "name": "Copyright",
                 "iconType": "iconTypeBack",

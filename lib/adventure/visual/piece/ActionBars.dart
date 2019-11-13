@@ -16,6 +16,7 @@
 */
 import 'package:adventure/adventure/entity/AdventureAction.dart';
 import 'package:adventure/adventure/util/ColorDefUtil.dart';
+import 'package:adventure/adventure/util/StringDefUtil.dart';
 import 'package:flutter/material.dart';
 
 class ActionBars extends StatefulWidget {
@@ -44,7 +45,7 @@ class _ActionBarsState extends State<ActionBars> {
             );
           } else {
             int i = index - 1;
-            if (this.widget.actionList[i].key == null || this.widget.actionList[i].key.isEmpty) {
+            if (StringDefUtil.isInvalid(this.widget.actionList[i].key)) {
               return SizedBox(
                 height: 60,
               );

@@ -20,10 +20,7 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
       List<Widget> rowList = [];
       for (int j = 0; j < partyMembers[i].length; j++) {
         if (partyMembers[i][j] != null) {
-          rowList.add(getPlayerStatusChart(
-              partyMembers[i][j].firstName,
-              partyMembers[i][j].currentHP.toString(),
-              partyMembers[i][j].currentResource1.toString()));
+          rowList.add(getPlayerStatusChart(partyMembers[i][j]));
         }
       }
       Row row = Row(
@@ -32,14 +29,6 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
       );
       playerRows.add(row);
     }
-
-    // List<Widget> rowList = [];
-    // rowList.add(getPlayerStatusChart("キャメラマン"));
-    // Row row = Row(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   children: rowList,
-    // );
-    // playerRows.add(row);
 
     return SizedBox.expand(
       child: Column(
@@ -50,7 +39,11 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
     );
   }
 
-  Widget getPlayerStatusChart(String firstName, String hp, String sp) {
+  Widget getPlayerStatusChart(Character character) {
+    String hp = character.currentHP.toString();
+    String sp = character.currentResource1.toString();
+    String firstName = character.firstName;
+
     return Container(
       margin: EdgeInsets.all(4),
       width: cardWidth,
