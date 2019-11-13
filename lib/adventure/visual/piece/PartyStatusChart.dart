@@ -16,11 +16,14 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
   Widget build(BuildContext context) {
     List<List<Character>> partyMembers = PlayerProtocol.getParty().partyMembers;
     List<Widget> playerRows = [];
-    for(int i = 0 ; i < partyMembers.length ; i++){
+    for (int i = 0; i < partyMembers.length; i++) {
       List<Widget> rowList = [];
-      for(int j = 0 ; j < partyMembers[i].length ; j++){
-        if(partyMembers[i][j] != null){
-          rowList.add(getPlayerStatusChart(partyMembers[i][j].firstName,partyMembers[i][j].currentHP.toString(),partyMembers[i][j].currentResource1.toString()));
+      for (int j = 0; j < partyMembers[i].length; j++) {
+        if (partyMembers[i][j] != null) {
+          rowList.add(getPlayerStatusChart(
+              partyMembers[i][j].firstName,
+              partyMembers[i][j].currentHP.toString(),
+              partyMembers[i][j].currentResource1.toString()));
         }
       }
       Row row = Row(
@@ -47,7 +50,7 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
     );
   }
 
-  Widget getPlayerStatusChart(String firstName,String hp, String sp) {
+  Widget getPlayerStatusChart(String firstName, String hp, String sp) {
     return Container(
       margin: EdgeInsets.all(4),
       width: cardWidth,
@@ -81,7 +84,7 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
                 Expanded(flex: 2, child: SizedBox()),
               ],
             ),
-            getRow(hp,sp),
+            getRow(hp, sp),
             Expanded(flex: 1, child: SizedBox()),
           ],
         ),
@@ -141,7 +144,7 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
           ),
         ),
         SizedBox(
-          width: 50,
+          width: 30,
         ),
         Expanded(
           flex: 1,
