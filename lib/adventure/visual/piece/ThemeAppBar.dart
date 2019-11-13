@@ -15,6 +15,7 @@
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
+import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +24,13 @@ class ThemeAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String disp_1;
   final String disp_2;
   final String disp_3;
- 
-  ThemeAppBar({Key key,@required this.iconType,@required this.disp_1,@required this.disp_2,@required this.disp_3})
+
+  ThemeAppBar(
+      {Key key,
+      @required this.iconType,
+      @required this.disp_1,
+      @required this.disp_2,
+      @required this.disp_3})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
   @override
@@ -37,7 +43,7 @@ class ThemeAppBarState extends State<ThemeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.blue[800].withOpacity(0.8),
+      backgroundColor: ColorDefUtil.appBarBackGround,
       leading: Builder(
         builder: (context) {
           Icon icon;
@@ -72,30 +78,21 @@ class ThemeAppBarState extends State<ThemeAppBar> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            color: Colors.blueGrey[900].withOpacity(0.4),
-            child: Text(
-              this.widget.disp_1,
-              style: TextStyle(fontSize: 30),
-            ),
+            color: ColorDefUtil.unClickableTextBGColor,
+            child: getText(this.widget.disp_1),
             padding: EdgeInsets.all(30),
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           ),
           Container(
-            color: Colors.blueGrey[900].withOpacity(0.4),
-            child: Text(
-              this.widget.disp_2,
-              style: TextStyle(fontSize: 30),
-            ),
+            color: ColorDefUtil.unClickableTextBGColor,
+            child: getText(this.widget.disp_2),
             padding: EdgeInsets.all(30),
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           ),
           Container(
             width: 500,
-            color: Colors.blueGrey[900].withOpacity(0.4),
-            child: Text(
-              this.widget.disp_3,
-              style: TextStyle(fontSize: 30),
-            ),
+            color: ColorDefUtil.unClickableTextBGColor,
+            child: getText(this.widget.disp_3),
             alignment: Alignment.center,
             padding: EdgeInsets.all(30),
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -104,5 +101,14 @@ class ThemeAppBarState extends State<ThemeAppBar> {
       ),
     );
   }
-}
 
+  Widget getText(String string) {
+    return Text(
+      string,
+      style: TextStyle(
+        fontSize: 30,
+        color: Colors.white,
+      ),
+    );
+  }
+}

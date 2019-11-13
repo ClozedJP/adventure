@@ -1,4 +1,5 @@
 import 'package:adventure/adventure/PlayerProtocol.dart';
+import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,21 +20,21 @@ class _MoneyBarState extends State<MoneyBar> {
                 height: 60,
               ),
               Container(
-                width: 400,
+                width: 300,
                 child: Card(
-                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                  color: Colors.blue[900].withOpacity(0.9),
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  color: ColorDefUtil.unClickableTextBGColor,
                   child: ListTile(
                     leading:  Icon(
                       Icons.euro_symbol,
-                      color: Colors.white,
-                      size: 40,
+                      color: ColorDefUtil.textColor,
+                      size: 36,
                     ),
                     title: Text(PlayerProtocol.getParty().wallet.getCurrentMoneyInFormat(),
                     textAlign: TextAlign.right,
                         style: TextStyle(
-                          fontSize: 40,
-                          color: Colors.white,
+                          fontSize: 36,
+                          color: ColorDefUtil.textColor,
                         )),
                   ),
                 ),

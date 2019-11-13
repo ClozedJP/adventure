@@ -15,6 +15,7 @@
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 import 'package:adventure/adventure/entity/AdventureAction.dart';
+import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:flutter/material.dart';
 
 class ActionBars extends StatefulWidget {
@@ -50,17 +51,17 @@ class _ActionBarsState extends State<ActionBars> {
             } else {
               return Card(
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-                color: Colors.blue[900].withOpacity(0.9),
+                color: ColorDefUtil.clickableTextBGClor,
                 child: ListTile(
                   leading: Icon(
                     Icons.apps,
-                    color: Colors.white,
+                    color: ColorDefUtil.textColor,
                     size: 40,
                   ),
                   title: Text(this.widget.actionList[i].name,
                       style: TextStyle(
                         fontSize: 30,
-                        color: Colors.white,
+                        color: ColorDefUtil.textColor,
                       )),
                   onTap: () {
                     if (this.widget.actionList[i].actionType == AdventureAction.move) {

@@ -99,7 +99,7 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
         width: 4,
         style: BorderStyle.solid,
       ),
-      color: ColorDefUtil.blue900withOpacity09,
+      color: ColorDefUtil.clickableTextBGClor,
       borderRadius: BorderRadius.circular(40),
     );
   }

@@ -14,6 +14,7 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:adventure/adventure/visual/AdventureAbstract.dart';
 import 'package:adventure/adventure/entity/AdventureAction.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';
@@ -64,7 +65,7 @@ class _MenuActionBarsState extends State<MenuActionBars>{
                     this.widget.description.name,
                     style: TextStyle(
                       fontSize: 30,
-                      color: Colors.white,
+                      color: ColorDefUtil.textColor,
                     ),
                   ),
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -79,7 +80,7 @@ class _MenuActionBarsState extends State<MenuActionBars>{
                 } else {
                   return Card(
                     margin: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-                    color: Colors.blue[900],
+                    color: ColorDefUtil.clickableTextBGClor,
                     child: ListTile(
                       onTap: () {
                         //Clozed 裏の状態を残すように指定できるようにする
@@ -89,11 +90,11 @@ class _MenuActionBarsState extends State<MenuActionBars>{
                       title: Text(this.widget.description.actionList[i].name,
                           style: TextStyle(
                             fontSize: 30,
-                            color: Colors.white,
+                            color: ColorDefUtil.textColor,
                           )),
                       leading: Icon(
                         Icons.apps,
-                        color: Colors.grey[300],
+                        color: ColorDefUtil.textColor,
                         size: 40,
                       ),
                     ),

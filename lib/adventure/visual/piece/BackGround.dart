@@ -14,6 +14,7 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:adventure/adventure/util/StringDefUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -29,15 +30,15 @@ class _BackGroundState extends State<BackGround> {
   static String lastImagePath;
   @override
   build(BuildContext context) {
-    double lastImageAlpha;
     String path;
+    Container cover;
     if(StringDefUtil.isInvalid(this.widget.imagePath)){
       path = lastImagePath;
-      lastImageAlpha = 0.85;
+      cover = Container(color: ColorDefUtil.greyCoverColor,);
     }
     else{
       path = this.widget.imagePath;
-      lastImageAlpha = 0;
+      cover = Container();
     }
 
     if (StringDefUtil.isInvalid(path)) {
@@ -58,7 +59,7 @@ class _BackGroundState extends State<BackGround> {
               fit: BoxFit.cover,
             )),
           ),
-          Container(color: Colors.grey[200].withOpacity(lastImageAlpha),),
+          cover,
         ],
       ),
     );

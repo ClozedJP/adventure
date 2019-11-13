@@ -18,6 +18,7 @@
 import 'dart:html' as html;//url_launcher is not supporting web yet.
 
 import 'package:adventure/adventure/entity/CardGridViewItem.dart';
+import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +69,7 @@ class _CardGridView extends State<CardGridView> {
               cardGridItem.disp1,
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.grey[800],
+                color: ColorDefUtil.greyText,
               ),
             ),
             SizedBox(height: 10),
@@ -76,7 +77,7 @@ class _CardGridView extends State<CardGridView> {
               cardGridItem.disp2,
               style: TextStyle(
                 fontSize: 30,
-                color: Colors.grey[800],
+                color: ColorDefUtil.greyText,
               ),
             ),
             SizedBox(height: 10),
