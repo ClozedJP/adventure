@@ -25,6 +25,7 @@ part 'AdventureDescription.g.dart';
 class AdventureDescription {
   static final String iconTypeBack = "iconTypeBack";
   static final String iconTypeMenu = "iconTypeMenu";
+  static final String iconTypeNone = "iconTypeNone";
 
   static final String bodyTypeActionBars = "actionBars";
   static final String bodyTypeCardGrid = "cardGrid";

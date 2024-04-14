@@ -190,7 +190,7 @@
                 "class": "AdventureBattleWidget",
                 "key": "forest",
                 "name": "森",
-                "iconType": "iconTypeMenu",
+                "iconType": "iconTypeNone",
                 "backGroundImagePath": "asset/image/background/forest.jpg",
                 "characterImagePath": "asset/image/character/chusei_heishi_tetsukabuto.png",
                 "bodyType": "actionBars",

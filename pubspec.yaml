@@ -47,6 +47,7 @@ flutter:
   assets:
    - asset/image/
    - asset/image/character/
+   - asset/image/character/monster/
    - asset/image/background/
    - asset/image/copyright/
    - asset/data/testDef20191108.json

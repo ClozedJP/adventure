@@ -1,6 +1,7 @@
+import 'package:adventure/adventure/game/rule/IamUnique.dart';
 import 'package:flutter/foundation.dart';
 
-abstract class Character {
+abstract class Character implements IamUnique{
   String _characterType;
   String get characterType{
     return _characterType;
@@ -11,6 +12,8 @@ abstract class Character {
   }
 
   String id;
+  String timeStamp;
+  String imageUrl;
 
   String firstName;
   String lastName;
@@ -29,6 +32,9 @@ abstract class Character {
   int agility = 10;//機敏
   int luck = 10;//幸運
   
-  Character():_characterType = "Character";
+  Character():_characterType = "character";
 
+  String get uniqueId{
+    return id + ":" + timeStamp;
+  }
 }

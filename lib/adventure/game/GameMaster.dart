@@ -14,7 +14,10 @@
   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+import 'dart:math';
+
 import 'package:adventure/adventure/game/character/Party.dart';
+import 'package:adventure/adventure/game/character/character/Monster.dart';
 
 class GameMaster {
   static DateTime _gameTime = DateTime.utc(2019, 10, 30, 8);
@@ -57,4 +60,27 @@ class GameMaster {
     return _party;
   }
 
+  static Party _enemy = Party();
+
+  static Party get enemy{
+    //Clozed testcode
+    if(_enemy.partyMembers.isEmpty){
+      _enemy.partyMembers = [[createDummyMonster("Slime","A"),createDummyMonster("Slime","B")]];
+    }
+    //testcode end
+    return _enemy;
+  }
+
+  static Monster createDummyMonster(String firstName,String lastName){
+    return Monster(
+      imageUrl: 'asset/image/character/monster/slime.png',
+      firstName: firstName,
+      lastName: lastName,
+      currentHP: Random.secure().nextInt(1000),
+      maxHP: 1000,
+      currentResource1: Random.secure().nextInt(1000),
+      maxResource1: 1000,
+      id:  Random.secure().nextInt(1000).toString(),
+    );
+  }
 }

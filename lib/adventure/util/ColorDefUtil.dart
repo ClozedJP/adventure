@@ -16,7 +16,7 @@ class ColorDefUtil {
   /*
 
   */
-  static Color appBarBackGround = Colors.blue[800].withOpacity(0.8);
+  static Color menuAreaBackGround = Colors.blue[800].withOpacity(0.8);
   static Color greyText = Colors.grey[800];
 
   /*
@@ -28,7 +28,6 @@ class ColorDefUtil {
     背景を暗くするときに使う
   */
   static Color greyCoverColor = Colors.black.withOpacity(0.3);
-
 
 
 }

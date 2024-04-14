@@ -43,36 +43,9 @@ class ThemeAppBarState extends State<ThemeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorDefUtil.appBarBackGround,
-      leading: Builder(
-        builder: (context) {
-          Icon icon;
-          Function f;
-          if (this.widget.iconType == AdventureDescription.iconTypeBack) {
-            icon = Icon(
-              Icons.arrow_back,
-            );
-            f = () {
-              Navigator.pop(context);
-            };
-          } else {
-            icon = Icon(
-              Icons.menu,
-            );
-            f = () {
-              Scaffold.of(context).openDrawer();
-            };
-          }
-          return Container(
-            color: Colors.blue[900],
-            child: IconButton(
-              icon: icon,
-              iconSize: 40,
-              onPressed: () => f(),
-            ),
-          );
-        },
-      ),
+      backgroundColor: ColorDefUtil.menuAreaBackGround,
+      automaticallyImplyLeading:false,
+      leading: getAppbarLeading(),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,16 +62,52 @@ class ThemeAppBarState extends State<ThemeAppBar> {
             padding: EdgeInsets.all(30),
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           ),
-          Container(
-            width: 500,
-            color: ColorDefUtil.unClickableTextBGColor,
-            child: getText(this.widget.disp_3),
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(30),
-            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+          Expanded(
+            child: Container(
+              color: ColorDefUtil.unClickableTextBGColor,
+              child: getText(this.widget.disp_3),
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(30),
+              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+            ),
           ),
         ],
       ),
+    );
+  }
+  
+  Builder getAppbarLeading(){
+    if(this.widget.iconType == AdventureDescription.iconTypeNone)return null;
+    return Builder(
+      builder: (context) {
+        if (this.widget.iconType == AdventureDescription.iconTypeBack)
+          return null;
+        Icon icon;
+        Function f;
+        if (this.widget.iconType == AdventureDescription.iconTypeBack) {
+          icon = Icon(
+            Icons.arrow_back,
+          );
+          f = () {
+            Navigator.pop(context);
+          };
+        } else {
+          icon = Icon(
+            Icons.menu,
+          );
+          f = () {
+            Scaffold.of(context).openDrawer();
+          };
+        }
+        return Container(
+          color: Colors.blue[900],
+          child: IconButton(
+            icon: icon,
+            iconSize: 40,
+            onPressed: () => f(),
+          ),
+        );
+      },
     );
   }
 

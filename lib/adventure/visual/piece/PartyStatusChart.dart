@@ -1,5 +1,5 @@
 import 'package:adventure/adventure/PlayerProtocol.dart';
-import 'package:adventure/adventure/game/character/Character.dart';
+import 'package:adventure/adventure/game/rule/Character.dart';
 import 'package:adventure/adventure/util/ColorDefUtil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ class PartyStatusChart extends StatefulWidget {
 }
 
 class _PartyStatusChartState extends State<PartyStatusChart> {
-  double cardWidth = 400;
+  double cardWidth = 360;
   double cardHeight = 100;
   @override
   Widget build(BuildContext context) {
@@ -85,18 +85,6 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
     );
   }
 
-  BoxDecoration getBoxDecoreation() {
-    return BoxDecoration(
-      border: Border.all(
-        color: Colors.white,
-        width: 4,
-        style: BorderStyle.solid,
-      ),
-      color: ColorDefUtil.clickableTextBGClor,
-      borderRadius: BorderRadius.circular(40),
-    );
-  }
-
   Text getHpText(String string) {
     return Text(
       string,
@@ -150,6 +138,18 @@ class _PartyStatusChartState extends State<PartyStatusChart> {
           ),
         ),
       ],
+    );
+  }
+
+  BoxDecoration getBoxDecoreation() {
+    return BoxDecoration(
+      border: Border.all(
+        color: Colors.white,
+        width: 4,
+        style: BorderStyle.solid,
+      ),
+      color: ColorDefUtil.clickableTextBGClor,
+      borderRadius: BorderRadius.circular(40),
     );
   }
 }

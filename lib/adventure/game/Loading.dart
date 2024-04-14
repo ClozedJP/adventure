@@ -19,7 +19,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:adventure/adventure/game/GameMaster.dart';
-import 'package:adventure/adventure/game/character/player/Player.dart';
+import 'package:adventure/adventure/game/character/character/Player.dart';
 import 'package:adventure/adventure/visual/AdventureBattleWidget.dart';
 import 'package:adventure/adventure/visual/AdventureWidget.dart';
 import 'package:adventure/adventure/entity/AdventureDescription.dart';

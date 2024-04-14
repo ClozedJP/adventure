@@ -23,4 +23,7 @@ class StringDefUtil {
       return false;
     }
   }
+  static bool isValid(String s){
+    return ! isInvalid(s);
+  }
 }
